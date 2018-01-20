@@ -35,9 +35,7 @@ $check = (int) (isset($_GET["check"])?$_GET["check"]:""); // выбор типа 1 или 2
 
 $searchstr = unesc(isset($_GET["search"])? htmlspecialchars_uni(strip_tags($_GET["search"])):"");
 
-
 $get_type=(isset($_GET["stype"]) ? (int)$_GET["stype"]:"");
-
 
 
 $cleansearchstr = htmlspecialchars($searchstr);
@@ -347,10 +345,12 @@ $listview = array_unique($listview); /// удаляем дубликаты
 
    // 	$wherea[] = "torrents.descr LIKE '%" . sqlwildcardesc($searchss) . "%'";
         if ($get_type=="1" && $CURUSER){
-        $wherea[] = "torrents.descr LIKE {$q2}"; /// OR torrents.descr LIKE {$q2}
+  //   $wherea[] = "torrents.descr LIKE {$q2}"; /// OR torrents.descr LIKE {$q2}
+         $wherea[]= "MATCH (torrents.descr) AGAINST ('".trim(implode(" ", $listrow))."' IN BOOLEAN MODE)";
         }
         elseif($get_type=="3" && get_user_class() >= UC_MODERATOR){
-        $wherea[] = "torrents.torrent_com LIKE {$q}"; /// OR torrents.descr LIKE {$q2}
+      // $wherea[] = "torrents.torrent_com LIKE {$q}"; /// OR torrents.descr LIKE {$q2}
+       $wherea[]= "MATCH (torrents.torrent_com) AGAINST ('".trim(implode(" ", $listrow))."' IN BOOLEAN MODE)";
          }
          elseif($get_type=="4"){
         $wherea[] = "torrents.info_hash = ".sqlesc((string) $searchstr); /// OR torrents.info_hash
@@ -426,8 +426,33 @@ if (!empty($cleantagstr)) {
 //$wherea[] = "torrents.tags LIKE '%" . sqlwildcardesc($tagstr) . "%'";
 //echo $tagstr;
 
-if (count(explode(" ",$tagstr)) <= 3)
-$wherea[] = "MATCH (torrents.tags) AGAINST ('" . sqlwildcardesc($tagstr) . "')";
+$tagstr = htmlspecialchars_uni($tagstr);
+$tagstr = substr($tagstr, 0, 128); /// 64 вполне устраивает
+
+$tagstr = preg_replace("/\[((\s|.)+?)\]/", "", $tagstr);
+$tagstr = preg_replace("/[^\w\x7F-\xFF\s]/", " ", $tagstr);
+$tagstr = preg_replace("/\s+\s/", " ", $tagstr);
+$tagstr = str_replace("/", ' ', $tagstr);
+
+$list = explode(" ", $tagstr);
+
+$tagstr_ar = array();
+
+foreach ($list AS $lis){
+
+if (strlen($lis)>=3)
+$tagstr_ar[] = "+".$lis;
+
+}
+
+$tagstr_ar = array_unique($tagstr_ar); /// удаляем дубликаты
+
+
+if (count($tagstr_ar)){
+//$wherea[] = "MATCH (torrents.tags) AGAINST ('" . sqlwildcardesc($tagstr) . "')";
+$wherea[]= "MATCH (torrents.tags) AGAINST ('".trim(implode(" ", $tagstr_ar))."' IN BOOLEAN MODE)";
+}
+
 $addparam.= "tag=" . urlencode($tagstr) . "&";
 }
 
@@ -699,21 +724,20 @@ $().ready(function() {
 
 <?
 
-echo "<b>Поиск</b>: <input type=\"text\" id=\"suggest\" name=\"search\" size=\"100\" class=\"searchgif\" value=\"".htmlspecialchars($searchstr)."\" />";
+echo "<b>Поиск</b>: <input type=\"text\" id=\"suggest\" name=\"search\" size=\"100\" class=\"searchgif\" value=\"".htmlspecialchars($searchstr)."\" /> ";
+
+
+echo "<select name=\"s\">";
+echo "<option value=\"0\">Релевантный поиск</option>";
+
+echo "<option value=\"1\" ".(!empty($get_type) ?" DISABLED":"")." ".($get_s == 1 ? " selected" : "").">Точный поиск</option>";
+
+
+echo "</select>";
+echo "<br>";
 
 
 ?>
-
-
-<select name="s">
-<option value="0">Релевантный поиск</option>
-<option value="1" <? echo($get_s == 1 ? " selected" : ""); ?>>Точный поиск</option>
-</select>
-
-<br>
-
-
-
 
 
 По 
@@ -726,9 +750,8 @@ echo "<b>Поиск</b>: <input type=\"text\" id=\"suggest\" name=\"search\" size=\"1
 
 ".(get_user_class() >= UC_MODERATOR ? "
 <option value=\"3\" ".($get_type == 3 ? " selected" : "").">Историям</option>
-<option value=\"4\" ".($get_type == 4 ? " selected" : "").">SHA-1 (info_hash)</option>
 ":"")."
-
+<option value=\"4\" ".($get_type == 4 ? " selected" : "").">SHA-1 (info_hash)</option>
 " : ""); ?>
 
 </select>
@@ -818,11 +841,8 @@ print("<tr><td align=\"center\" class=\"b\" colspan=\"12\"><h3>Поиск в файлах пр
 
 if (isset($cleantagstr)){
 
-if (count(explode(" ",$tagstr)) <= 3)
-print("<tr><td class=\"a\" colspan=\"12\">Результаты поиска по тэгу: <b>".htmlspecialchars($tagstr)."</b></td></tr>\n");
-else
-print("<tr><td class=\"a\" colspan=\"12\">Результат недействителен: тег <b>".htmlspecialchars($tagstr)." </b> имеет много пробелов, уменьшите их до трех.</td></tr>\n");
-
+if (count($tagstr_ar))
+echo "<tr><td class=\"a\" colspan=\"12\">Результаты поиска по тэгу: <b>".htmlspecialchars($tagstr)."</b></td></tr>\n";
 
 
 }

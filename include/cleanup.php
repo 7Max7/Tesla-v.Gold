@@ -1,17 +1,4 @@
 <?
-
-/**  Внимание, самая популярная сборка движка теперь доступна в бесплатном скачивании (версия gold за 2010 год)!!!!
-* Это старая версия проекта Tesla - торрент сайта. Демо новой версии можно посмотреть по ссылке demo.muz-tracker.net
-* Если желаете использовать движок, то оставьте пожалуйста копирайта на своих местах, иначе стабильной работы не гарантируется.
-* Если желаете поискать и установить новые моды, советуем воспользоваться форумами: bit-tracker.info, bit-torrent.kiev.ua.
-* Если желаете поблагодарить владельца 7Max7 за эту сборку, киньте пару монеток на R190680055855 или Z187703352284
-* Если желаете обновить Gold версию до Platinum - придется заплатить около 70$ (с последующими бесплатными обновлениями)
-* 
-* Данная копия движка взята с сайта demo muz-tracker net! ))
-* Спасибо за внимание к движку Tesla.
-**/
-
-
 if(!defined('IN_TRACKER'))
   die('А Куда это мы прём?!');
 
@@ -147,8 +134,8 @@ sql_query("UPDATE avps SET value_u='$now_2day',value_i='$numo', value_s='$dt' WH
 	$deadtime = deadtime();
 	sql_query("UPDATE snatched SET seeder = 'no' WHERE seeder = 'yes' AND last_action < FROM_UNIXTIME($deadtime)");
 
-	$deadtime -= $max_dead_torrent_time;
-	sql_query("UPDATE torrents SET visible='no' WHERE visible='yes' AND last_action < FROM_UNIXTIME($deadtime) AND (f_seeders+f_leechers)='0'") or sqlerr(__FILE__,__LINE__);
+///	$deadtime -= $max_dead_torrent_time;
+///	sql_query("UPDATE torrents SET visible='no' WHERE visible='yes' AND last_action < FROM_UNIXTIME($deadtime) AND (f_seeders+f_leechers)='0'") or sqlerr(__FILE__,__LINE__);
 
 
 
@@ -605,7 +592,7 @@ if (is_valid_id($auto_duploader) && !empty($auto_duploader)){
 	}
 
 // очистка сессии
-$dt = sqlesc(get_date_time(gmtime() - 1200));
+$dt = get_date_time(gmtime() - 1200);
 sql_query("DELETE FROM sessions WHERE time < ".sqlesc($dt)) or sqlerr(__FILE__,__LINE__);
 
 
