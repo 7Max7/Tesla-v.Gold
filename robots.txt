@@ -1,0 +1,28 @@
+# For domain: http://www.muz-trackers.ru
+
+# main section
+User-agent:*
+Disallow: /torrents/
+Disallow: /cache/
+Disallow: /blocks/
+Disallow: /include/
+Disallow: /backup/
+Disallow: /admincp.php
+Crawl-delay: 1
+# End of main section
+
+User-agent: Yandex
+Host: www.muz-trackers.ru
+
+
+User-agent: Yandex
+Allow: /
+Sitemap: http://www.muz-trackers.ru/sitemap_ru.xml
+Sitemap: http://www.muz-trackers.ru/sitemap_ru_category.xml
+Sitemap: http://www.muz-trackers.ru/sitemap_ru_forums.xml
+Sitemap: http://www.muz-trackers.ru/sitemap_ru_torrent.xml
+Sitemap: http://www.muz-trackers.ru/sitemap_ru_torrent_1.xml
+Sitemap: http://www.muz-trackers.ru/sitemap_ru_torrent_2.xml
+Sitemap: http://www.muz-trackers.ru/sitemap_ru_torrent_3.xml
+Sitemap: http://www.muz-trackers.ru/sitemap_ru_tags.xml
+Sitemap: http://www.muz-trackers.ru/sitemap_ru_users.xml

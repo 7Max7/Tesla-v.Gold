@@ -1,0 +1,10 @@
+<SearchPlugin xmlns="http://www.mozilla.org/2006/browser/search/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/">
+<os:ShortName>Forum Muz-Tracker.net</os:ShortName>
+<os:Description>Forum Muz-Tracker.net</os:Description>
+<os:InputEncoding>windows-1251</os:InputEncoding>
+<os:Image width="16" height="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACX0lEQVQ4jY3Qu09TARTHcf4UJicXBgYTNT5QY4gmLiQaBx1IdBAnjBiIAwEToKnlIaZQ3oTwELCBFhTkWQoB21Iaa4GAtZRHb+UW2lvbe9v7dcBIKiV6tpP8fp+cnAwA30GcQERG5d+jhmMk96N/9gyAnbCMc1di1nt4elGSiY6vEp1cJyn+BSRVsPoOaXcEsKRBlPUgYtUE4S4b8moAlCQkFUA9AgA2xRgdjgBVs35ce9Jx+buI8KQfUTOJvCaAmkTZdqHsfj2+ACAYVWh3BCid9FE4sklQUiCpEiw0IhQMIJncqLEYMaeRuOcTiX3vMZBQ4ZsYo9W+x6tpH/mD65SMeYnZtvDn1CNWTqBKUaLWJqLzrcibVvj98gyAgKTQsyJg+LxHwfAGFxqc5DS7mC8y479aT6RvmbBJR9hcimRpJCGspT4xnlCptm6jX9zlnH6ZrDo7WXV2RnMN+K+9JfSmB7H5HgcDhUQX2iAhpwIA5lWRl+NeLjY6ydQscUa7hOW6np3bBoTiIoK6y4S6HvHT1ou8MXcSANAv7nLJsEKmZomz1TZG77Tiz6knWPYYoSKbH7U3iHvGibmG0wMA3SsC5xuOrtA+G8F3TkOwPA+hIhux/SGRsUrUSPB0AMBgnuNp2wT3tWPM1AzgLrvFl5q7zA51cLjlScmmBZpMMxgXXGiNFpqLXjM1aKB3aAgxFDqRTQsUv7NQ0j3BnNvLi85JZhxuyt9b00XTAw8aP/LcaKdlfIny/mlqpjzkd1qQZeX/gJs6E3mGKfqsLq7oPmC0b9BiXSO3dpRwJJKS/QU/cYng8VQWuAAAAABJRU5ErkJggg==</os:Image>
+<os:Url type="text/html" method="GET" template="http://www.muz-tracker.net/forums.php">
+  <os:Param name="action" value="search"/>
+  <os:Param name="keywords" value="{searchTerms}"/>
+</os:Url>
+</SearchPlugin>

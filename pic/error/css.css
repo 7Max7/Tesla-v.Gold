@@ -1,0 +1,26 @@
+﻿a { color: #E8AE12}
+a:hover { color: #F5D681}
+.copy {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-decoration: none}
+a.copy {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-decoration: underline; color: #E3E3E3}
+a.copy:hover {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-decoration: underline; color: #ffffff}
+.hd {  background-image: url(pic/error/header_top.jpg); background-repeat: no-repeat; background-position: center center}
+.header {  font-family: Georgia, "Times New Roman", Times, serif; font-size: 20px; color: #5A1400; letter-spacing: 0.07em}
+.main {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #D1D1D1}
+.small {  font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #B5B5B5}
+p { text-indent: 1.5em}
+#null { text-indent: 0}
+.null { text-indent: 0}
+.switch {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #5B1300; text-decoration: none}
+a.switch {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #5B1300; text-decoration: none}
+a.switch:hover {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #AF0000; text-decoration: none}
+.menu {  font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #E7AA11; text-decoration: none}
+.pre { border-color: #424F4E}
+.thumb { padding: 1px; background-color: #808C88; background-image: url(pic/error/default.gif); width: 55px; background-repeat: no-repeat; background-position: center center}
+.news { borderColor: #424F4E;  CLEAR: left; FLOAT: left;  BORDER: #333 1px solid; margin-right: 5px}
+.thumb1 { padding: 1px; background-color: #808C88; background-image: url(pic/error/default.gif); width: 55px; background-repeat: no-repeat; background-position: center center;  CLEAR: left; FLOAT: left; margin-right: 5px}
+.p_bg { background-color: #566460; background-image: url(pic/error/p_bg.gif)}
+.date { color: white; font-weight: bold }
+hr {color: #4D5956}
+.button {font-family: Arial, sans-serif; font-size: 10px; color: #333333; BACKGROUND-COLOR:#999999; BORDER-BOTTOM: black 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-RIGHT: black 1px solid; BORDER-TOP: #bbbbbb 1px solid }
+.field {font-family: Arial, sans-serif; font-size: 10px; color: #333333; BACKGROUND-COLOR:#999999; BORDER-BOTTOM: #bbbbbb 1px solid; BORDER-LEFT: black 1px solid; BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: black 1px solid }
+BODY {color: #D1D1D1; margin: 0px; padding: 0px; background-color: black; SCROLLBAR-FACE-COLOR: #3D6050; SCROLLBAR-HIGHLIGHT-COLOR: #8AB5A2; SCROLLBAR-SHADOW-COLOR: #1F3028; SCROLLBAR-3DLIGHT-COLOR: #3D6050; SCROLLBAR-ARROW-COLOR: #E7AA11; SCROLLBAR-TRACK-COLOR: #84938B; SCROLLBAR-DARKSHADOW-COLOR: #000000}

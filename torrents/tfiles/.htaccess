@@ -1,0 +1,13 @@
+<FilesMatch "\.(php|php3|php4|php5|phps|cgi)$">
+Deny From All
+</FilesMatch>
+
+# Запрет выдачи листинга пустого каталога
+Options -Indexes
+
+#<Files ~ "\.(inc|conf|cfg)$">
+#Deny from all
+#</Files> 
+###
+
+php_value engine off

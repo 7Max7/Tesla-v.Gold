@@ -1,0 +1,6 @@
+<FilesMatch "\.(php)$">
+Order Allow,Deny
+
+Deny from all
+</FilesMatch>
+# проверить дирктива Files ограничивает действие директив одним файлом

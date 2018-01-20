@@ -1,0 +1,56 @@
+ErrorDocument 404 http://www.muz-trackers.ru/index.php
+ErrorDocument 403 http://www.muz-trackers.ru/index.php
+ErrorDocument 500 http://www.muz-trackers.ru/500.php
+
+Options +FollowSymLinks
+RewriteEngine On
+
+#перенаправление если прокси
+RewriteCond %{HTTP:VIA} .+
+RewriteRule (.+) http://www.muz-trackers.ru/proxy.php
+
+#RewriteCond %{HTTP_HOST} ^muz-tracker\.net$ [NC]
+#RewriteRule ^(.*)$ http://www.muz-trackers.ru/$1 [R=301,L]
+
+#RewriteCond %{HTTP_HOST} ^www.muz-tracker\.net$ [NC]
+#RewriteRule ^(.*)$ http://www.muz-trackers.ru/$1 [R=301,L]
+
+#перенаправление с muz-tracker на www.muz-tracker
+RewriteCond %{HTTP_HOST}   !^$
+RewriteCond %{HTTP_HOST}   !^www\.          [NC]
+RewriteCond %{HTTP_HOST}   (.+)$
+RewriteRule ^(.*)          http://www.%1/$1 [R=301,L]
+
+
+#запрещаем выполнять эти запросы, суперглобальной и тд
+RewriteCond %{THE_REQUEST} /(.*)passwords(.*)$ [NC,OR]
+RewriteCond %{THE_REQUEST} /(.*)REQUEST(.*)$ [NC,OR]
+RewriteCond %{THE_REQUEST} /(.*)GLOBALS(.*)$ [NC]
+RewriteRule . -[F]
+
+#запретить межсайтовый скриптинг методом trace через http
+RewriteCond %{REQUEST_METHOD} ^TRACE
+RewriteRule .* - [F]
+
+#запрещаем выполнять файлы
+AddHandler cgi-script .pl .py .jsp .asp .htm .shtml .sh .cgi
+Options -ExecCGI
+
+#редирект запросов на сайт любой
+redirect /cgi-bin http://www.google.com
+redirect /_vti_bin http://www.google.com
+redirect /scripts http://www.google.com
+redirect /MSADC http://www.google.com
+redirect /c http://www.google.com
+redirect /d http://www.google.com
+redirect /xc2 http://www.google.com
+redirect /xa0 http://www.google.com
+redirect /xd1 http://www.google.com
+redirect /x89 http://www.google.com
+redirect /xd0 http://www.google.com
+redirect /xb0 http://www.google.com
+redirect /xd1 http://www.google.com
+redirect /x81 http://www.google.com
+redirect /_mem_bin http://www.google.com
+redirect /msadc http://www.google.com
+RedirectMatch (.*)\cmd.exe$ http://www.google.com$1
