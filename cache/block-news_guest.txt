@@ -1,2 +1,0 @@
-<table class="main" align="center" border="1" cellspacing="0" cellpadding="10"><tr><td><div align="center"><h3>Нет новостей</h3></div>
-</td></tr></table>
