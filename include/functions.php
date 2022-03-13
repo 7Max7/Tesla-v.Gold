@@ -154,7 +154,7 @@ $nip = ip2long($ip);
 /*
 if (($_SERVER["SERVER_ADDR"] <> $_SERVER["REMOTE_ADDR"] && !preg_match("/bot/i", $_SERVER["HTTP_USER_AGENT"])) && $SITE_ONLINE=="local_user") {
 header("HTTP/1.1 301 Moved Permanently");
-header("Location: http://www.muz-tracker.net");
+header("Location: http://tesla-tracker.net");
 exit();
 }
 */
@@ -1196,7 +1196,7 @@ $CLOSE_NOTICE = '<title>Сайт временно отключен</title>
 
     if (!headers_sent()){
 	header("Content-Type: text/html; charset=" . $tracker_lang['language_charset']);
-	header("X-Powered-by: Tesla Tracker TT (2010) [Предновогодняя] - www.muz-tracker.net");
+	header("X-Powered-by: Tesla Tracker TT (2010) [Предновогодняя] - tesla-tracker.net");
 	header("X-Chocolate-to: ICQ 225454228 (7Max7)");
 	header("Cache-Control: no-cache");
 	header("Pragma: no-cache");
@@ -1239,7 +1239,7 @@ die;
 
     if (!headers_sent()){
 	header("Content-Type: text/html; charset=" . $tracker_lang['language_charset']);
-	header("X-Powered-by: Tesla Tracker TT (2010) [Предновогодняя] - www.muz-tracker.net");
+	header("X-Powered-by: Tesla Tracker TT (2010) [Предновогодняя] - tesla-tracker.net");
 	header("X-Chocolate-to: ICQ 225454228 (7Max7)");
 	header("Cache-Control: no-cache");
 	header("Pragma: no-cache");

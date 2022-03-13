@@ -837,7 +837,7 @@ echo "<tr><td ".($i%2==0 ? "class=\"b\"":"class=\"a\"").">".$bot." <a target='_b
 echo "<td ".($i%2==0 ? "class=\"a\"":"class=\"b\"")." align=\"center\">".($user_time)."</td>";
 
 
-$host = str_replace("www.muz-tracker.net", "<font color=\"blue\">www.muz-tracker.net</font>", $host);
+$host = str_replace("tesla-tracker.net", "<font color=\"blue\">tesla-tracker.net</font>", $host);
 $host = str_replace("www.muz-trackers.ru", "<font color=\"red\">www.muz-trackers.ru</font>", $host);
 
 		

@@ -712,10 +712,8 @@ function format_comment($text, $strip_html = true, $xssclean = false) {
  //// если два домена иначе убрать!
     $site = parse_url($BASEURL, PHP_URL_HOST);
     
-    if ($site=="www.muz-tracker.net")
-    $s = str_replace("www.muz-trackers.ru", "www.muz-tracker.net", $s);
-	elseif ($site=="www.muz-trackers.ru")
-    $s = str_replace("www.muz-tracker.net","www.muz-trackers.ru", $s);
+    if ($site=="tesla-tracker.net")
+    $s = str_replace("www.muz-trackers.ru", "tesla-tracker.net", $s);
     //unset($site);
  //// если два домена иначе убрать!
 
