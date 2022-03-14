@@ -1794,7 +1794,7 @@ return false;
 * Если желаете использовать движок то оставьте пожалуйста копирайта на своих местах, иначе стабильной работы не гарантируется. Спасибо за внимание к движку Tesla.
 */
 
-define ("VERSION", "<b>.:$SITENAME <a href=\"http://tesla-tracker.net/\" class=\"copyright\" alt=\"Сайт поднят на движке под названием Tesla Tracker (TT) © ".date("Y")." года. Владельцами являются 7Max7.\" title=\"Сайт поднят на движке под названием Tesla Tracker (TT) © 2010 года. Владельцами являются 7Max7.\"/>©</a> 2010 года v.Gold:.<b>");
+define ("VERSION", "<b>.:".$SITENAME." <a href=\"http://tesla-tracker.net/\" class=\"copyright\" title=\"Движок сайта: Tesla (TT) Tesla Tracker © 2008-2022 г. Владельцем движка (создатель исходника) является 7Max7.\">©</a> 2010 года Tesla v. Gold (IV):.</b>");
 define ("TBVERSION", "");
 
 ?>
